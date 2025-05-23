@@ -1,0 +1,28 @@
+use  SQL_Curso_1
+go
+
+create table dbo.Tab1 (Numero_tab1 numeric(6,0))
+create table dbo.Tab2 (Numero_tab2 numeric(6,0))
+
+insert dbo.Tab1(Numero_tab1) values(300)
+
+insert dbo.Tab2(Numero_tab2) values(500)
+
+select *  from 
+dbo.Tab1
+select * from dbo.Tab2
+---- Subquery
+select  SUM(X.Total) as Total
+
+from (
+select
+sum(T1.Numero_tab1)as Total
+from  dbo.Tab1 T1
+
+union all
+select  
+sum(T2.Numero_tab2) as Total
+
+from dbo.Tab2 T2
+
+)X
